@@ -329,7 +329,7 @@ public class ConcatenationInjector implements ConcatenationAwareInjector {
       Language language = InjectorUtils.getLanguage(injection);
       if (language == null) return;
 
-      final boolean separateFiles = !injection.isSingleFile() && StringUtil.isNotEmpty(injection.getValuePattern());
+      final boolean separateFiles = injection.isSingleFile() && StringUtil.isNotEmpty(injection.getValuePattern());
 
       final Ref<Boolean> unparsableRef = Ref.create(myUnparsable);
       final List<Object> objects = ContextComputationProcessor.collectOperands(injection.getPrefix(), injection.getSuffix(), unparsableRef, myOperands);
